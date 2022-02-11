@@ -75,8 +75,11 @@
       </div>
       <div class="flex -mx-6 mt-20 items-center text-xs">
 
-        <div class="w-1/3 ">
-          <img  src="~/assets/img/facebook.svg" alt="">
+        <div class="w-1/3 flex">
+          <img class="mr-3" width="30" src="~/assets/img/facebook.svg" alt="">
+          <img class="mr-3" width="30" src="~/assets/img/instagram.svg" alt="">
+          <img class="mr-3" width="30" src="~/assets/img/twitter.svg" alt="">
+          <img class="mr-3" width="30" src="~/assets/img/linkedin.svg" alt="">
 
         </div>
         <div class="w-1/3">

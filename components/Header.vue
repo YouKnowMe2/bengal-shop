@@ -8,7 +8,7 @@
          <div class="min-w-max px-3">
            <img src="~/assets/img/search.png" alt="">
          </div>
-         <input class="w-full p-3 focus:outline-none" type="search" placeholder="Search Here...."></input>
+         <input class="w-full p-3 focus:outline-none" type="search" placeholder="Search Here....">
          <button class="bg-gray-400 p-2 px-6 py-2 text-white" type="submit">Search</button>
        </div>
      </div>
@@ -22,8 +22,8 @@
    </div>
 
   <div class="flex items-center">
-    <div class="w-96">
-      <div class="bs-dark-green-bg flex rounded-full px-4 py-2 curson-pointer">
+    <div v-click-outside="menuClose"  class="w-96 relative">
+      <div @click.prevent="menuClick" class="bs-dark-green-bg flex rounded-full relative z-20 px-4 py-2 curson-pointer">
 
         <div class="min-w-max">
           <img src="~/assets/img/menu-right.png" alt="">
@@ -35,14 +35,27 @@
           <img src="~/assets/img/chevron-down.png" alt="">
         </div>
       </div>
+
+      <div v-bind:class="allCategoryMenu ? 'block visible': 'hidden invisible'" class="absolute  bs-dark-green-bg z-10 w-full -mt-5 pt-6 pb-4 rounded-b-2xl">
+        <ul>
+          <li><nuxt-link class="block text-white px-4 py-2" to="/">Fruits</nuxt-link></li>
+          <li><nuxt-link class="block text-white px-4 py-2" to="/">Vegetables</nuxt-link></li>
+          <li><nuxt-link class="block text-white px-4 py-2"to="/">Lorem ipsum dolor.</nuxt-link></li>
+          <li><nuxt-link class="block text-white px-4 py-2" to="/">Lorem ipsum.</nuxt-link></li>
+          <li><nuxt-link class="block text-white px-4 py-2" to="/">Fruits</nuxt-link></li>
+        </ul>
+      </div>
     </div>
+
+
+
     <div class="w-full">
       <ul class="flex justify-center">
         <li>
           <nuxt-link to="/" class="p-4">Home</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/" class="p-4">Categories</nuxt-link>
+          <nuxt-link to="/category" class="p-4">Categories</nuxt-link>
         </li>
         <li>
           <nuxt-link to="/" class="p-4">About</nuxt-link>
@@ -71,8 +84,23 @@
 </template>
 
 <script>
+import Logo from "@/components/Logo";
 export default {
-  name: "Header"
+  name: "Header",
+  components: {Logo},
+  data(){
+    return{
+      allCategoryMenu: false
+    }
+  },
+  methods: {
+    menuClick(){
+    this.allCategoryMenu = !this.allCategoryMenu;
+    },
+    menuClose(){
+      this.allCategoryMenu=false;
+    }
+  }
 }
 </script>
 
