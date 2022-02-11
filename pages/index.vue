@@ -164,10 +164,10 @@
         </div>
 
 
-            <vue-slick-carousel class="category-carousel mb-16 text-center" v-bind="categoryCarouselSettings">
-              <div v-for="item in 12">
-              <SingleProductBox :product="item"/>
-              </div>
+        <vue-slick-carousel v-if="dealsOfTheDayProducts.length" class="category-carousel mb-16 text-center" v-bind="productCarouselSettings">
+
+          <SingleProductBox v-for="product in dealsOfTheDayProducts" :key="product.id" :product="product"/>
+
 
               <template #prevArrow="arrowOption">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -280,6 +280,7 @@
 <script>
 
 import SingleProductBox from "../components/SingleProductBox";
+import dealsOfTheDayProducts from 'assets/deals-of-the-day-products.json'
 
 export default {
   name: 'IndexPage',
@@ -291,8 +292,12 @@ export default {
       },
       productCarouselSettings: {
         "slidesToShow": 6
-      }
+      },
+      DealsOfTheDayProducts: []
     }
+  },
+  mounted() {
+    this.dealsOfTheDayProducts = dealsOfTheDayProducts;
   }
 }
 </script>

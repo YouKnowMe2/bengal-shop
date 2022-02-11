@@ -152,7 +152,7 @@ export default {
   },
   methods: {
     modalClose() {
-      this.modal = false;
+
       this.$store.dispatch("product-details-modal/resetModal");
     }
   },
