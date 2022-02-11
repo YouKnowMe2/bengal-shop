@@ -34,10 +34,10 @@ export default {
   name: "SingleProductBox",
   props: ["product"],
   methods: {
-    productDetails(){
-      this.$store.commit("product-details-modal/triggerModal",this.product);
+    productDetails() {
+      this.$store.dispatch("product-details-modal/triggerModal", this.product);
     }
-  }
+  },
 }
 </script>
 

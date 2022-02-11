@@ -13,10 +13,10 @@
        </div>
      </div>
      <div class="min-w-max flex">
-       <nuxt-link to="/"><span class="bs-icon-box rounded-full hover:bg-gray-200 flex items-center justify-center inline-block "><img src="~/assets/img/heart.png" alt=""></span></nuxt-link>
-       <nuxt-link to="/" class="relative mx-4"><span class="bs-icon-box rounded-full hover:bg-gray-200 flex items-center justify-center inline-block "><img src="~/assets/img/u_shopping-bag.png" alt="">
+       <nuxt-link to="/wishlist"><span class="bs-icon-box rounded-full hover:bg-gray-200 flex items-center justify-center inline-block "><img src="~/assets/img/heart.png" alt=""></span></nuxt-link>
+       <nuxt-link to="/cart" class="relative mx-4"><span class="bs-icon-box rounded-full hover:bg-gray-200 flex items-center justify-center inline-block "><img src="~/assets/img/u_shopping-bag.png" alt="">
       </span> <span class="absolute bg-red-600 w-4 h-4 top-0 right-0 rounded-full text-xs flex justify-center  items-center">0</span></nuxt-link>
-       <nuxt-link to="/" class="flex items-center"><span class="bs-icon-box rounded-full hover:bg-gray-200  flex items-center justify-center inline-block "><img src="~/assets/img/user.png" alt="">
+       <nuxt-link to="/my-account" class="flex items-center"><span class="bs-icon-box rounded-full hover:bg-gray-200  flex items-center justify-center inline-block "><img src="~/assets/img/user.png" alt="">
       </span><span>Account</span></nuxt-link>
      </div>
    </div>
@@ -58,16 +58,16 @@
           <nuxt-link to="/category" class="p-4">Categories</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/" class="p-4">About</nuxt-link>
+          <nuxt-link to="/about" class="p-4">About</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/" class="p-4">Contact</nuxt-link>
+          <nuxt-link to="/contact" class="p-4">Contact</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/" class="p-4">FAQs</nuxt-link>
+          <nuxt-link to="/faqs" class="p-4">FAQs</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/" class="p-4">Offers</nuxt-link>
+          <nuxt-link to="/order-tracking" class="p-4">Offers</nuxt-link>
         </li>
 
 
