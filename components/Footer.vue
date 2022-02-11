@@ -93,7 +93,19 @@
   </div>
 
 
+  <!--Product details modal -->
+  <div class="fixed w-full h-full min-h-screen z-30 top-0 left-0">
+    <div class="absolute bg-black bg-white opacity-60 h-full w-full top-0 left-0"></div>
+    <div class="bs-modal-body bg-white rounded-2xl p-8 relative mx-auto z-30 my-10">
+      <div class="flex -mx-8">
+        <div class="w-1/2 px-8">
+          <img src="~/assets/img/tom-brunberg-D4ZtZX1UeAI-unsplash.jpg" alt="">
+        </div>
+        <div class="w-1/2 px-8"></div>
+      </div>
+    </div>
 
+  </div>
 
 </div>
 </template>
