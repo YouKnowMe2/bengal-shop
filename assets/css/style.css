@@ -120,3 +120,6 @@ body{
 .bs-modal-body {
   max-width: 1000px;
 }
+span:last-child span.comma {
+  @apply hidden
+}
