@@ -21,8 +21,10 @@ export const mutations = {
       getProductsLocalStorage.push({
         id: data.product.id,
         name: data.product.name,
+        image: data.product.image,
         quantity: 1,
         price: data.product.price,
+        sale: data.product.sale,
 
       });
     }else{

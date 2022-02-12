@@ -15,7 +15,7 @@
      <div class="min-w-max flex">
        <nuxt-link to="/wishlist"><span class="bs-icon-box rounded-full hover:bg-gray-200 flex items-center justify-center inline-block "><img src="~/assets/img/heart.png" alt=""></span></nuxt-link>
        <nuxt-link to="/cart" class="relative mx-4"><span class="bs-icon-box rounded-full hover:bg-gray-200 flex items-center justify-center inline-block "><img src="~/assets/img/u_shopping-bag.png" alt="">
-      </span> <span class="absolute bg-red-600 w-4 h-4 top-0 right-0 rounded-full text-xs flex justify-center  items-center">0</span></nuxt-link>
+      </span> <span class="absolute bg-red-600 w-4 h-4 top-0 right-0 rounded-full text-xs flex justify-center  items-center">{{count}}</span></nuxt-link>
        <nuxt-link to="/my-account" class="flex items-center"><span class="bs-icon-box rounded-full hover:bg-gray-200  flex items-center justify-center inline-block "><img src="~/assets/img/user.png" alt="">
       </span><span>Account</span></nuxt-link>
      </div>
@@ -90,7 +90,8 @@ export default {
   components: {Logo},
   data(){
     return{
-      allCategoryMenu: false
+      allCategoryMenu: false,
+      count: 0
     }
   },
   methods: {
@@ -99,6 +100,23 @@ export default {
     },
     menuClose(){
       this.allCategoryMenu=false;
+    },
+    cartWatcher(){
+      const getProductsLocalStorage = JSON.parse(localStorage.getItem('cart'));
+      const getProductStore =this.$store.getters["cart/getCart"];
+
+      let cart = [];
+      if(getProductStore.length){
+        cart =  getProductStore;
+
+      }else {
+        cart = getProductsLocalStorage;
+      }
+      if(cart.length){
+        cart.forEach(item => {
+          this.count = (this.count + item.quantity);
+        })
+      }
     }
   },
   mounted() {
@@ -107,6 +125,20 @@ export default {
 
       localStorage.setItem('cart','[]');
     }
+
+    this.cartWatcher();
+    this.$store.watch(
+      () => {
+        return this.$store.getters["cart/getCart"]
+      },
+      (val) => {
+        this.cartWatcher()
+
+      },
+      {
+        deep:true
+      }
+    );
   }
 }
 </script>

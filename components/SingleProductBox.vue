@@ -64,6 +64,8 @@ export default {
       }else {
         cart = getProductsLocalStorage;
       }
+
+
       if(cart.length){
         cart.forEach(item => {
           if(item.id === this.product.id){
