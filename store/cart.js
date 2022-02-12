@@ -50,6 +50,23 @@ export const mutations = {
     state.cart =getProductsLocalStorage;
 
     //save in user database
+  },
+  REMOVE_CART(state,product_id){
+    let getProductsLocalStorage = JSON.parse(localStorage.getItem('cart'));
+
+
+    if(getProductsLocalStorage.length){
+      getProductsLocalStorage.forEach((item,index)=>{
+        if (item.id === product_id){
+          getProductsLocalStorage.splice(index,1);
+        }
+      })
+
+    }
+    localStorage.setItem('cart', JSON.stringify(getProductsLocalStorage))
+    //save in store
+    state.cart =getProductsLocalStorage;
+
   }
 
 }
@@ -58,8 +75,11 @@ export const actions = {
   addToCart({commit}, product) {
     commit('ADD_TO_CART', product)
   },
-  resetModal({commit}) {
-    commit('RESET_MODAL')
+  removeCart({commit},product_id) {
+    commit('REMOVE_CART',product_id)
+  },
+  cartChange(){
+
   }
 }
 
