@@ -36,6 +36,7 @@
 <script>
 import Sidebar from "../components/Sidebar";
 import SingleProductBox from "../components/SingleProductBox";
+
 export default {
   name: "category",
   components: {SingleProductBox, Sidebar}

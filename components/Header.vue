@@ -100,6 +100,9 @@ export default {
     menuClose(){
       this.allCategoryMenu=false;
     }
+  },
+  mounted() {
+    localStorage.setItem('cart',JSON.stringify([]))
   }
 }
 </script>

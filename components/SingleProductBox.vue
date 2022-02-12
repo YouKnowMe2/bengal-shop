@@ -19,7 +19,7 @@
             <button class="h-12 w-12 border border-white rounded-full">+</button>
           </div>
 
-          <button class="bs-dark-green-bg text-white px-8 py-2 rounded-full inline-block">Add to cart</button>
+          <button @click.prevent="addToCart(product)" class="bs-dark-green-bg text-white px-8 py-2 rounded-full inline-block">Add to cart</button>
         </div>
       </div>
     </div>
@@ -36,6 +36,9 @@ export default {
   methods: {
     productDetails() {
       this.$store.dispatch("product-details-modal/triggerModal", this.product);
+    },
+    addToCart(product) {
+      this.$store.dispatch("cart/addToCart", this.product);
     }
   },
 }
