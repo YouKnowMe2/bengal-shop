@@ -40,7 +40,7 @@
         <ul>
           <li><nuxt-link class="block text-white px-4 py-2" to="/">Fruits</nuxt-link></li>
           <li><nuxt-link class="block text-white px-4 py-2" to="/">Vegetables</nuxt-link></li>
-          <li><nuxt-link class="block text-white px-4 py-2"to="/">Lorem ipsum dolor.</nuxt-link></li>
+          <li><nuxt-link class="block text-white px-4 py-2" to="/">Lorem ipsum dolor.</nuxt-link></li>
           <li><nuxt-link class="block text-white px-4 py-2" to="/">Lorem ipsum.</nuxt-link></li>
           <li><nuxt-link class="block text-white px-4 py-2" to="/">Fruits</nuxt-link></li>
         </ul>
@@ -102,7 +102,11 @@ export default {
     }
   },
   mounted() {
-    localStorage.setItem('cart',JSON.stringify([]))
+    let getLocalStorageProducts = JSON.parse(localStorage.getItem('cart'));
+    if(getLocalStorageProducts===null){
+
+      localStorage.setItem('cart','[]');
+    }
   }
 }
 </script>

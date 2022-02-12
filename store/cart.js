@@ -1,3 +1,5 @@
+import cart from "@/pages/cart";
+
 export const state = () => ({
   cart: []
 
@@ -54,6 +56,9 @@ export const actions = {
 
 export const getters = {
   getCart(state) {
+
+
+
     return state.cart
 
   }
